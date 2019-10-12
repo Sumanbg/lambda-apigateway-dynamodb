@@ -18,11 +18,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script type="text/javascript">
 		
-    #provide you apigateway url
 		var API_URL= 'https://i84tczno7j.execute-api.us-east-1.amazonaws.com/prod';
-		
-    #Reading data from DynamoDB table
-    $(document).ready(function(){
+		$(document).ready(function(){
 			$.ajax({
 				type: 'GET',
 				url:  API_URL,
@@ -37,7 +34,6 @@
             });
         });
 		
-    #Writing data to dynamodb table
 		$('#submitButton').on('click', function(){
 			$.ajax({
 				type: 'POST',
