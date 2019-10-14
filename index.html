@@ -2,7 +2,7 @@
 <head>
 </head>
 	<body>
-	<h1>Latest guestbookItem entry</h1>
+	<h1>User Feedback entry</h1>
 	<div id="entries">  
 	</div>
 	
@@ -19,6 +19,7 @@
 		<script type="text/javascript">
 		
 		var API_URL= 'PROVIDE-YOUR-API-ENDPOINT-URL';
+			
 		$(document).ready(function(){
 			$.ajax({
 				type: 'GET',
@@ -27,8 +28,8 @@
 				success: function(data){
 					$('#entries').html('');
 					
-					data.Items.forEach(function(guestbookItem){
-						$('#entries').append('<p>' + guestbookItem.message + '</p>');
+					data.Items.forEach(function(feedbackItem){
+						$('#entries').append('<p>' + feedbackItem.message + '</p>');
 						})
 				}
             });
