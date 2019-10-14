@@ -1,0 +1,23 @@
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'}); #For N.Virginia replace with us-east-1
+
+exports.handler = function(event, context, callback) {
+	console.log(event);
+	var params = {
+		Item: {
+			date: Date.now(),
+			message: "Lambda function to write data to dynamodb table"
+			
+		},
+		
+		TableName: 'feedback' #Provide your DynameDB table name
+	};
+	
+	docClient.put(params, function(error, data){
+		if(error){
+			callback(error, null);
+		}else{
+		     callback(null, data);
+		}
+	});
+}
